@@ -1,0 +1,10 @@
+services:
+  bolt.new:
+    image: bolt.new:1.0
+    working_dir: /app
+    build: .
+    ports:
+      - 8788:80
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
