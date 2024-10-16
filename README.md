@@ -17,7 +17,7 @@ OLLAMA_BASE_URL=http://host.docker.internal:11434/v1/
 VITE_LOG_LEVEL=debug
 ```
 
-3. Modify the definitions in "llm.json".
+3. Modify the definitions in "llms.json".
 ```json
 [
 [
@@ -44,20 +44,30 @@ VITE_LOG_LEVEL=debug
 ]
 ]
 ```
-4. xecute the following command to build:
+1. Execute the following command to build:
 ```bash
 docker compose build
 ```
 
-5. Execute the following command to launch bolt.new:
-```
+1. Execute the following command to launch bolt.new:
+```bash
 docker compose up -d 
 ```
-6. Access the following address from your browser:
+1. Access the following address from your browser:
  http://localhost:8788
 
 ---
+If you make changes to "llms.json," please rebuild it before running.
+```bash
+docker compose build
+docker compose up -d 
+```
+
+---
 Notes: 
+
 This container uses Nginx as described below: 
- Host PC : 8788 -->> Nginx : 80 -->> bolt.new:8788 
+```
+Host PC : 8788 -->> Nginx : 80 -->> bolt.new:8788
+```
 To change the port number exposed to the host PC, modify docker-compose.yml.
